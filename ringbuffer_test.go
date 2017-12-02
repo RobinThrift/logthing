@@ -5,6 +5,8 @@ import (
 )
 
 func TestNewRingBuffer(t *testing.T) {
+	t.Parallel()
+
 	buffer := NewRingBuffer(10)
 	if buffer == nil {
 		t.Fatalf("Buffer is nil Oo")
@@ -12,6 +14,8 @@ func TestNewRingBuffer(t *testing.T) {
 }
 
 func TestRingBufferInsert(t *testing.T) {
+	t.Parallel()
+
 	buffer := NewRingBuffer(4)
 	values := []rune{'a', 'b', 'c', 'd', 'e'}
 	for _, v := range values {
@@ -35,6 +39,8 @@ func TestRingBufferInsert(t *testing.T) {
 }
 
 func TestThreadSaftey(t *testing.T) {
+	t.Parallel()
+
 	worker := func(value rune, buffer *RingBuffer, done chan rune) {
 		buffer.Insert(value)
 		done <- value
