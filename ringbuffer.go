@@ -37,3 +37,9 @@ func (rb *RingBuffer) Do(f func(interface{})) {
 	defer rb.m.Unlock()
 	rb.first.Do(f)
 }
+
+func (rb *RingBuffer) Clear() {
+	for i := 0; i < rb.ring.Len(); i++ {
+		rb.Insert(nil)
+	}
+}

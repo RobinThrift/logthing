@@ -83,3 +83,21 @@ loop:
 		i++
 	})
 }
+
+func TestRingBufferClear(t *testing.T) {
+	t.Parallel()
+
+	buffer := NewRingBuffer(4)
+	values := []rune{'a', 'b', 'c', 'd', 'e'}
+	for _, v := range values {
+		buffer.Insert(v)
+	}
+
+	buffer.Clear()
+
+	buffer.Do(func(v interface{}) {
+		if v != nil {
+			t.Fatalf("Value is not `nil`. Got %d", v)
+		}
+	})
+}
