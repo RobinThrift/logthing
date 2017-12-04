@@ -27,7 +27,7 @@ test-all: test lint vet
 
 clean:
 	@echo "+ $@"
-	@rm -rf aggregotor
+	@rm -rf logthing
 
 install:
 	@echo "+ $@"
