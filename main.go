@@ -84,8 +84,8 @@ func handleConnection(conn net.Conn, srvc *service) {
 	conn.Close()
 }
 
-type makeBodyFunc = func(*RingBuffer) string
-type sendFunc = func(string, string, string) error
+type makeBodyFunc func(*RingBuffer) string
+type sendFunc func(string, string, string) error
 
 func scheduleStart(srvc *service, format makeBodyFunc, send sendFunc) {
 	schedule(func() {
