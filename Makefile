@@ -9,7 +9,7 @@ build:
 
 fmt:
 	@echo "+ $@"
-	@gofmt -s -l . | grep -v vendor | tee /dev/stderr
+	@gofmt -s -w .
 
 lint:
 	@echo "+ $@"
