@@ -10,7 +10,6 @@ import (
 	"time"
 )
 
-
 type SendGridError struct {
 	response *rest.Response
 }
