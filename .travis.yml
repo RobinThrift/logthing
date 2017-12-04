@@ -3,3 +3,7 @@ language: go
 go:
     - latest
 
+script:
+    - go get github.com/sendgrid/sendgrid-go
+    - make
+
