@@ -35,3 +35,7 @@ install:
 
 run:
 	@go run main.go
+
+docker:
+	@echo "+ $@"
+	@docker build -t robinthrift/logthing:latest .
