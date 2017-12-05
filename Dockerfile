@@ -12,6 +12,8 @@ ENV LT_SENDER "PLS"
 ENV LT_RECIPIENT "SET"
 ENV LT_SENDGRID_API_KEY "ME"
 
+EXPOSE 5960
+
 WORKDIR /root/
 COPY --from=builder /go/src/github.com/RobinThrift/logthing/logthing .
 CMD ["./logthing"]
